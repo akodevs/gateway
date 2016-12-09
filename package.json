@@ -1,0 +1,25 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "Front End Framework: Bootstrap, CSS preprocessor: Sass, Methodologies: BEM ",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akodevs/gateway.git"
+  },
+  "keywords": [
+    "bem",
+    "sass",
+    "gulp",
+    "bootstrap"
+  ],
+  "author": "Kurt Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akodevs/gateway/issues"
+  },
+  "homepage": "https://github.com/akodevs/gateway#readme"
+}
