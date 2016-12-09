@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/akodevs/gateway#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "browserify": "^13.1.1",
+    "gulp": "^3.9.1",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

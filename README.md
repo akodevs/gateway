@@ -1,14 +1,15 @@
  
 # Starting from Scratch 
 
-#### Introduction 
+### Introduction 
+------
 
 write your folder setup here
 
 
-#### Quick Start 
+### Quick Start 
 ------
-##### 1. Init your repository  
+#### 1. Init your repository  
 
 Init Repository
 ```
@@ -43,15 +44,31 @@ client/.DS_Store
 dist" > .gitignore
 ```
 
-##### 2. Init your package.json  and install important packages
+#### 2. Init your package.json  and install important packages
 
-Fill out info for package.json
-``` npm init ```
+Install pacakge.json and fill out information
+
+``` 
+npm init 
+```
  
-Install Gulp globally and as a developer dependency
+**Install Gulp** globally and as a developer dependency
 ``` 
 	npm install gulp -g
 	npm install gulp --save-dev
 ```
 
+**Install browserify**
+``` 
+	npm install --save-dev browserify 
+```
+
+**Install vinyl-source-strem**
+a package which takes the browserify stream and converts it into something that gulp understands.
+``` 
+	npm install vinyl-source-stream --save-dev
+```
+
+
+#### 2. create gulfile.js
 
