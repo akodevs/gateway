@@ -63,12 +63,26 @@ npm init
 	npm install --save-dev browserify 
 ```
 
-**Install vinyl-source-strem**
+**Install vinyl-source-stream**
 a package which takes the browserify stream and converts it into something that gulp understands.
 ``` 
 	npm install vinyl-source-stream --save-dev
 ```
 
 
-#### 2. create gulfile.js
+#### 3. create gulfile.js
+* gulp-jshint (Looks up for errors in your js code and reports the same)
+* gulp-sass (Compiles your sass into css)
+* gulp-uglify (Minifies js files)
+* browser-sync (For synchronized browser testing)
+
+```
+	npm install fs path --save-dev
+	npm install gulp-jshint --save-dev
+	npm install gulp-uglify --save-dev
+	npm install browser-sync --save-dev 
+	npm install gulp-notify --save-dev
+	npm install gulp-sass --save-dev
+```
+  
 

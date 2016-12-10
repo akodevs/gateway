@@ -23,8 +23,14 @@
   },
   "homepage": "https://github.com/akodevs/gateway#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.2",
     "browserify": "^13.1.1",
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "path": "^0.12.7",
     "vinyl-source-stream": "^1.1.0"
   }
 }
