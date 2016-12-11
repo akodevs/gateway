@@ -5,5 +5,9 @@
 
 var gulp = require('gulp');
 var path = require('path');
-var fs = require('fs');
+var fileStream = require('fs');
+var browserSync = require('browser-sync').create();
+
+
+
 
