@@ -7,6 +7,7 @@ var gulp = require('gulp');
 var path = require('path');
 var fs = require('fs');
 var browserSync = require('browser-sync').create();
+var source = require('vinyl-source-stream');
 
 var plugins = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'gulp.*', 'browserify'],
@@ -16,6 +17,7 @@ var plugins = require('gulp-load-plugins')({
 });
 plugins.browserSync = browserSync;
 plugins.path = path;
+plugins.source = source;
 
 
 // Check if file is valid if yes then add to pool and loop each to inject plug-ins and gulp
@@ -27,5 +29,7 @@ tasks.forEach(function (file) {
   require(path.join(__dirname, 'task', file))(gulp, plugins);
 });  
 
-// TODO: Add lint later, for test
-gulp.task('build', ['jade', 'scss', 'copy', 'scripts']);
+gulp.task('default', ['browser-sync'], function() {
+    gulp.watch("./client/**/*.*", ["build"]);
+    gulp.watch(".dist/**/*.*").on('change', browserSync.reload);
+});
