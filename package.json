@@ -25,7 +25,6 @@
   "devDependencies": {
     "browser-sync": "^2.18.2",
     "browserify": "^13.1.1",
-    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.4",
     "gulp-sass": "^2.3.2",
