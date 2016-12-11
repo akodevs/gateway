@@ -1,0 +1,70 @@
+{
+  "name": "gateway",
+  "description": "Front End Framework: Bootstrap, CSS preprocessor: Sass, Methodologies: BEM",
+  "main": "server/app.js",
+  "authors": [
+    "Kurt Garcia"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "bem",
+    "sass",
+    "gulp",
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/akodevs/gateway",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-sanitize": "^1.5.8",
+    "jquery": "^3.1.1",
+    "animate.scss": "animate-scss#^1.2.2",
+    "ngSmoothScroll": "^2.0.0",
+    "angular-strap": "^2.3.10",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  },
+  "overrides": {
+    "angular": {
+      "dependencies": {
+        "jquery": "^3.1.1"
+      }
+    },
+    "bootstrap": {
+      "dependencies": {
+        "jquery": "^3.1.1"
+      },
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css" 
+      ]
+    },
+    "ngSmoothScroll": {
+      "dependencies": {
+        "angular": ">=1.5.*"
+      }
+    },
+    "angular-route": {
+      "dependencies": {
+        "angular": ">=1.5.*"
+      }
+    },
+    "angular-sanitize": {
+      "dependencies": {
+        "angular": ">=1.5.*"
+      }
+    }
+  },
+  "group": {
+     "main": ["font-awesome", "jquery", "bootstrap"]
+  },
+  "resolutions": {
+    "angular": "1.5.8"
+  }
+}

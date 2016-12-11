@@ -11,15 +11,15 @@
 
  
     gulp.task('scripts:main', function() {
-        return gulp.src(['./client/assets/js/*.js']])
+        return gulp.src(['./client/assets/js/*.js'])
             .pipe(plugins.uglify())
-            .pipe(concat('main.min.js'))
+            .pipe(plugins.concat('main.min.js'))
             .pipe(gulp.dest('./dist/assets/js'))
     }); 
 
     gulp.task('scripts:angular-components', function() {
     // Grabs the app.js file
-    return browserify('./client/app/app.js')
+    return plugins.browserify('./client/app/app.js')
         // bundles it and creates a file called main.js
         .bundle()
         .pipe(plugins.source('main-angular-components.js'))
@@ -55,15 +55,15 @@
 
     gulp.task('test:lint', function() {
       return gulp.src('./client/{app,components}/**/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('default'));
     }); 
 
     // TODO: Add lint later, for test
-    gulp.task('build', ['test:lint', 'view:jade', 'styles:scss', 'styles:vendors', 'scripts:angular-components'], 'scripts:main']);
+    gulp.task('build', ['test:lint', 'view:jade', 'styles:scss', 'styles:vendors', 'scripts:angular-components', 'scripts:main']);
 
     gulp.task('browser-sync', ['build'], function() {
-        browserSync.init({
+        plugins.browserSync.init({
             server: {
                 baseDir: "./dist",
                 // The key is the url to match

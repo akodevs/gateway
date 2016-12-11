@@ -6,11 +6,12 @@
 var gulp = require('gulp');
 var path = require('path');
 var fs = require('fs');
+var browserify = require('browserify');
 var browserSync = require('browser-sync').create();
 var source = require('vinyl-source-stream');
 
 var plugins = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'gulp.*', 'browserify'],
+    pattern: ['gulp-*', 'gulp.*', 'browserify', 'main-bower-files'],
     rename: { 'event-stream': 'es' },
     config: path.join(__dirname, 'package.json'),
     lazy: false 
@@ -18,6 +19,7 @@ var plugins = require('gulp-load-plugins')({
 plugins.browserSync = browserSync;
 plugins.path = path;
 plugins.source = source;
+plugins.browserify = browserify;
 
 
 // Check if file is valid if yes then add to pool and loop each to inject plug-ins and gulp
