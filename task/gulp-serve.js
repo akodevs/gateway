@@ -9,7 +9,21 @@
  
  module.exports = function(gulp, plugins) {
 
- 
+    // monitors any changes that restart your (express) server
+    gulp.task('run:nodemon', function(cb) {
+        var started = false;
+
+        return nodemon({
+            script: './server/app.js'
+        }).on('start', function() {
+            // to avoid nodemon to restart multiple times
+            if(!started) {
+                cb();
+                started = true;
+            } 
+        })
+    });
+    
     gulp.task('scripts:main', function() {
         return gulp.src(['./client/assets/js/*.js'])
             .pipe(plugins.uglify())
