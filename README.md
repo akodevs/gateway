@@ -86,3 +86,14 @@ a package which takes the browserify stream and converts it into something that 
 ```
   
 
+#### 4. Modules Use
+* oc.lazyLoad 
+- package for angular that can load angular modules in a lazy way
+- lazy laoding is  a design pattern or a technique for loading content when it's needed rather than all at once
+
+* ngResource
+- An angular module provides interaction support with RESTful services via the $resource service.
+
+* Angular UI Router
+- is a routing framework for AngularJS, which allows you to organize the parts of your interface into a state machine. Unlike the $route service in the Angular ngRoute module, which is organized around URL routes, UI-Router is organized around states, which may optionally have routes, as well as other behavior, attached.
+- States are bound to named, nested and parallel views, allowing you to powerfully manage your application's interface.

@@ -62,7 +62,7 @@
 
     // Compile jade files to html and put it in build and dist folder
     gulp.task('view:jade', function() {
-        return gulp.src(['./client/{app,components}/**/*.jade'])
+        return gulp.src(['./client/{app,components}/**/*.jade', './client/*.jade'])
             .pipe(plugins.jade({ pretty: true })) 
             .pipe(gulp.dest('./dist'))
             .pipe(plugins.browserSync.stream());
@@ -85,7 +85,7 @@
                 // The key is the url to match
                 // The value is which folder to serve (relative to your current working directory)
                 routes: {
-                    "./bower_components": "bower_components",
+                    "./client/bower_components": "bower_components",
                     "./node_modules": "node_modules"
                 }
             },
