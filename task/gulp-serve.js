@@ -7,9 +7,9 @@
  *  - Compile SCSS, Main Scripts, Vendor Scripts then Inject
  */
  
- module.exports = function(gulp, plugins) {
-
- 
+ module.exports = function(gulp, plugins) { 
+    
+    // Compile all javascripts and output it to main.min.js
     gulp.task('scripts:main', function() {
         return gulp.src(['./client/assets/js/*.js'])
             .pipe(plugins.uglify())
@@ -17,14 +17,15 @@
             .pipe(gulp.dest('./dist/assets/js'))
     }); 
 
+    // Find dependent files from app.js and compile
     gulp.task('scripts:angular-components', function() {
-    // Grabs the app.js file
-    return plugins.browserify('./client/app/app.js')
-        // bundles it and creates a file called main.js
-        .bundle()
-        .pipe(plugins.source('main-angular-components.js'))
-        .pipe(gulp.dest('./dist/assets/js'));
-    })
+        // Grabs the app.js file
+        return plugins.browserify('./client/app/app.js')
+            // bundles it and creates a file called main.js
+            .bundle()
+            .pipe(plugins.source('main-angular-components.js'))
+            .pipe(gulp.dest('./dist/assets/js'));
+    }); 
 
     // Minify Vendor CSS 
     gulp.task('styles:vendors', function() {
@@ -53,6 +54,7 @@
             .pipe(plugins.browserSync.stream());
     });    
 
+    // Test all javascript files
     gulp.task('test:lint', function() {
       return gulp.src('./client/{app,components}/**/*.js')
         .pipe(plugins.jshint())
