@@ -11,7 +11,7 @@ var browserSync = require('browser-sync').create();
 var source = require('vinyl-source-stream');
 
 var plugins = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'gulp.*', 'browserify', 'main-bower-files'],
+    pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
     rename: { 'event-stream': 'es' },
     config: path.join(__dirname, 'package.json'),
     lazy: false 
