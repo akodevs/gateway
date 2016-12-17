@@ -45,4 +45,9 @@ var global = {
     },
 };
 
-module.exports = _.merge(all, require('./' + process.env.NIDE_ENV + '.js') || {});
+var sharedVariables = {
+  // Save express settings here, initialized on setup
+  app: null
+};
+
+module.exports = _.merge(all, app,  require('./' + process.env.NIDE_ENV + '.js') || {});

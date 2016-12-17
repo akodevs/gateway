@@ -45,9 +45,9 @@
     gulp.task('styles:vendors', function() {
         // get all the main bower files and minify them
         return gulp.src(plugins.mainBowerFiles('**/*.css'))
-                .pipe(plugins.rename('vendors.min.css'))
-                .pipe(plugins.minifyCss())
-                .pipe(gulp.dest('./dist/assets/css'));
+            .pipe(plugins.rename('vendors.min.css'))
+            .pipe(plugins.minifyCss())
+            .pipe(gulp.dest('./dist/assets/css'));
     }); 
 
     // Compile SCSS to CSS
@@ -77,7 +77,7 @@
 
     // TODO: Add lint later, for test
     gulp.task('build', ['test:lint', 'view:jade', 'styles:scss', 'styles:vendors', 'scripts:angular-components', 'scripts:main']);
-
+   
     gulp.task('browser-sync', ['build'], function() {
         plugins.browserSync.init({
             server: {

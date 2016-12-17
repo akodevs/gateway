@@ -1,47 +1,45 @@
 /**
  * Setup a server to talk from client to server (nodeJS)
  */
- 
- var express = require('express'),
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+GLOBAL.appGlobals = {};
+
+var express = require('express'),
+	config = require('./config/env/'), 
     mongoose = require('mongoose'),
-    morgan = require('morgan'),
-    bodyParser = require('body-parser'),
-    methodOverride = require('method-override');
+    morgan = require('morgan');
+  
+mongoose.connect(config.mongo.uri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error...'));
+db.once('open', function callback() {
+	console.log('db just opened..')
+}); 
 
-// Initialize express, define port and require config file
+
+// Populate db with Sample Data 
+// if (config.seedDB) { require('./config/seed')(); }
+
+// Setup server
 var app = express(),
-    port = process.env.port || 8000,
-    config = require('./config');
+ 	server = require('http').createServer(app);
 
-// connect to DB
-// mongoose.connect(config.localDatabase);
+config.app = app; 
+// intialize express server
+require('./config/express')(app, config); 
+// initialize routs
+require('./config/routes')(app);  
 
-// set the static files location /dist/img will be /img for users
-app.use(express.static(config.root + './dist'));
-
-// log every request to the console
-app.use(morgan('dev'));
-
-// Use a nodeJS body parsing middleware
-// Parse incoming request bodies in a middleware before your handlers
-// available under req.body property.
-app.use(bodyParser.urlencoded({'extended': 'true'}));
-// parse application/json
-app.use(bodyParser.json()); 
-// parse application/vnd.api+json as json
-app.use(bodyParser.json({type: 'application/vnd.api+json'})); 
-
-// override with the X-HTTP-Method-Override header in the request
-// Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
-app.use(methodOverride('X-HTTP-Method-Override'));
-
+// Start server
+server.listen(config.port, config.ip, function() { 
+	console.log('Express server listening to port %s in %s mode ',config.port, app.get('env'));
+});
+ 
 // load the single view file (angular will handle the page changes on the front-end)
 app.get('*', function (req, res) {
-    res.sendFile(config.root + '/dist/app/index.html'); 
-});
+    res.sendFile(config.root + './dist/index.html'); 
+}); 
 
-// listen (start app with node server.js)  
-app.listen(port);
-console.log("App listening on port " + port);
-
+exports = module.exports = app;
  
