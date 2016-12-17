@@ -3,6 +3,7 @@
 require('angular');
 require('angular-ui-router');  
 require('oclazyload'); 
+require('./main/main.js'); 
 angular.module('appTemp', ['ngResource', 'ui.router', "oc.lazyLoad"]); 
 
 angular.module('appTemp')
