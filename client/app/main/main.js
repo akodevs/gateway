@@ -8,5 +8,5 @@ angular.module('appTemp')
 			data: { pageTitle: 'Home', class: 'home' },
 			templateUrl: './main/main',
 			controller: 'MainController'
-	    }) 
+	    });
 	});  

@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
  
 angular.module('appTemp').controller('MainController', MainController);
 
 function MainController($scope) {
-	$scope.myVar = "Hello, Sample" 
+	$scope.myVar = "Hello, Sample";
 } 
