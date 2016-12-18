@@ -15,7 +15,7 @@
   "homepage": "https://github.com/akodevs/gateway",
   "private": true,
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.6.0",
     "angular-route": "^1.5.8",
     "angular-sanitize": "^1.5.8",
     "jquery": "^3.1.1",
@@ -23,7 +23,9 @@
     "ngSmoothScroll": "^2.0.0",
     "angular-strap": "^2.3.10",
     "bootstrap": "^3.3.7",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "angular-ui-router": "^0.3.2",
+    "oclazyload": "^1.0.9"
   },
   "overrides": {
     "angular": {
@@ -42,7 +44,7 @@
     },
     "font-awesome": {
       "main": [
-        "css/font-awesome.css" 
+        "css/font-awesome.css"
       ]
     },
     "ngSmoothScroll": {
@@ -62,7 +64,11 @@
     }
   },
   "group": {
-     "main": ["font-awesome", "jquery", "bootstrap"]
+    "main": [
+      "font-awesome",
+      "jquery",
+      "bootstrap"
+    ]
   },
   "resolutions": {
     "angular": "1.5.8"
