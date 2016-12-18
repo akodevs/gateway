@@ -10,7 +10,7 @@
 
 // Initialize express, define port and require config file
 var app = express(),
-    port = process.env.port || 8000,
+    port = process.env.port || 5000,
     config = require('./config');
 
 // connect to DB

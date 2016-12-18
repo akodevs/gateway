@@ -78,18 +78,19 @@
     // TODO: Add lint later, for test
     gulp.task('build', ['test:lint', 'view:jade', 'styles:scss', 'styles:vendors', 'scripts:angular-components', 'scripts:main']);
 
-    gulp.task('browser-sync', ['build'], function() {
-        plugins.browserSync.init({
-            server: {
-                baseDir: "./dist",
-                // The key is the url to match
-                // The value is which folder to serve (relative to your current working directory)
-                routes: {
-                    "./bower_components": "bower_components",
-                    "./node_modules": "node_modules"
-                }
-            },
-            browser:"google chrome"
-        });
+    gulp.task('browser-sync', ['build', 'run:nodemon'], function() { 
+        plugins.browserSync.init(null, {
+            proxy: "http://localhost:5000",
+            files: ["./dist/**/*.*"],
+            browser: "google chrome",
+            baseDir: "./dist",
+            // The key is the url to match
+            // The value is which folder to serve (relative to your current working directory)
+            routes: {
+                "./bower_components": "bower_components",
+                "./node_modules": "node_modules"
+            }
+            port: 8000,
+        });  
     })  
  }
