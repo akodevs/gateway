@@ -1,11 +1,7 @@
 /**
  * Setup a server to talk from client to server (nodeJS)
  */
- 
-// Initialize express, define port and require config file
-var app = express(),
-    port = process.env.port || 5000,
-    config = require('./config'); 
+  
 
 var express = require('express'),
 	config = require('./config/env/'), 

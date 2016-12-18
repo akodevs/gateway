@@ -1,5 +1,4 @@
-'use strict';
- 
+
 angular.module('appTemp')
 	.config(function ($stateProvider) {
 	  $stateProvider

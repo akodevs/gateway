@@ -1,10 +1,6 @@
-'use strict';
-
-var vendorPath = './bower-components/';
-
-require(vendorPath + 'angular');
-require(vendorPath + 'angular-ui-router');  
-require(vendorPath + 'oclazyload'); 
+require('angular');
+require('angular-ui-router');  
+require('oclazyload'); 
 require('./main/main.js'); 
 angular.module('appTemp', ['ngResource', 'ui.router', "oc.lazyLoad"]); 
 

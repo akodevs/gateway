@@ -61,7 +61,7 @@
       "dependencies": {
         "angular": ">=1.5.*"
       }
-    }
+    } 
   },
   "group": {
     "main": [
@@ -71,6 +71,7 @@
     ]
   },
   "resolutions": {
-    "angular": "1.5.8"
+    "angular": "1.5.8",
+    "angular-ui-router": "0.3.2"
   }
 }

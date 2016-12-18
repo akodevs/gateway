@@ -8,7 +8,7 @@
 var path = require('path');
 var _ = require('lodash');
 
-var global = {
+var all = {
     env: process.env.NODE_ENV,
 
     // File root path
@@ -50,4 +50,4 @@ var sharedVariables = {
   app: null
 };
 
-module.exports = _.merge(all, app,  require('./' + process.env.NIDE_ENV + '.js') || {});
+module.exports = _.merge(all, sharedVariables,  require('./' + process.env.NIDE_ENV + '.js') || {});

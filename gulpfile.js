@@ -9,6 +9,8 @@ var fs = require('fs');
 var browserify = require('browserify');
 var browserSync = require('browser-sync').create();
 var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+
 
 var plugins = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
@@ -19,6 +21,7 @@ var plugins = require('gulp-load-plugins')({
 plugins.browserSync = browserSync;
 plugins.path = path;
 plugins.source = source;
+plugins.buffer = buffer;
 plugins.browserify = browserify;
 
 

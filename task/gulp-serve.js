@@ -13,15 +13,15 @@
     gulp.task('run:nodemon', function(cb) {
         var started = false;
 
-        return nodemon({
+        return plugins.nodemon({
             script: './server/app.js'
-        }).on('start', function() {
-            // to avoid nodemon to restart multiple times
-            if(!started) {
-                cb();
-                started = true;
-            } 
-        })
+            }).on('start', function() {
+                // to avoid nodemon to restart multiple times
+                if(!started) {
+                    cb();
+                    started = true;
+                } 
+            })
     });
     
     gulp.task('scripts:main', function() {
@@ -35,7 +35,7 @@
     gulp.task('scripts:angular-components', function() {
         // Grabs the app.js file
         return plugins.browserify('./client/app/app.js')
-            // bundles it and creates a file called main.js
+            // bundles it and creates a file called main-angular-components.js
             .bundle()
             .pipe(plugins.source('main-angular-components.js'))
             .pipe(gulp.dest('./dist/assets/js'));
@@ -62,7 +62,7 @@
 
     // Compile jade files to html and put it in build and dist folder
     gulp.task('view:jade', function() {
-        return gulp.src(['./client/{app,components}/**/*.jade', './client/*.jade'])
+        return gulp.src(['./client/{app,components}/**/*.jade'])
             .pipe(plugins.jade({ pretty: true })) 
             .pipe(gulp.dest('./dist'))
             .pipe(plugins.browserSync.stream());
@@ -89,8 +89,8 @@
             routes: {
                 "./bower_components": "bower_components",
                 "./node_modules": "node_modules"
-            }
-            port: 8000,
+            },
+            port: 8000
         });   
     });
  }
