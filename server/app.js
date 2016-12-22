@@ -2,6 +2,9 @@
  * Setup a server to talk from client to server (nodeJS)
  */
   
+// Set default node environment to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+global.appGlobals = {};
 
 var express = require('express'),
 	config = require('./config/env/'), 
@@ -36,7 +39,7 @@ server.listen(config.port, config.ip, function() {
  
 // load the single view file (angular will handle the page changes on the front-end)
 app.get('*', function (req, res) {
-    res.sendFile(config.root + './dist/index.html'); 
+    res.sendFile(config.root + '/dist/app/index.html'); 
 }); 
 
 exports = module.exports = app;

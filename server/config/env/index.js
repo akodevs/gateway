@@ -3,7 +3,7 @@
  * Env, root, port, secret, mongo, facebook, twitter google
  */
 
-'use strict'
+'use strict';
 
 var path = require('path');
 var _ = require('lodash');
@@ -15,7 +15,7 @@ var all = {
     root: path.normalize(__dirname + './../../..'),
 
     // Serer port 
-    port: process.env.PORT || 8000,
+    port: process.env.PORT || 8081,
 
     // Session Secret  
     secrets: { session: 'd03b84d4-513c-4cf5-8b78-d00f1858b1fb' },
@@ -42,7 +42,7 @@ var all = {
             clientSecret: process.env.GOOGLE_SECRET || 'secret',
             callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
         }
-    },
+    }
 };
 
 var sharedVariables = {
@@ -50,4 +50,4 @@ var sharedVariables = {
   app: null
 };
 
-module.exports = _.merge(all, sharedVariables,  require('./' + process.env.NIDE_ENV + '.js') || {});
+module.exports = _.merge(all, sharedVariables,  require('./' + process.env.NODE_ENV + '.js') || {});
