@@ -15,7 +15,7 @@ var all = {
     root: path.normalize(__dirname + './../../..'),
 
     // Serer port 
-    port: process.env.PORT || 8081,
+    port: process.env.PORT || 5000,
 
     // Session Secret  
     secrets: { session: 'd03b84d4-513c-4cf5-8b78-d00f1858b1fb' },
