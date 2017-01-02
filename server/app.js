@@ -29,7 +29,7 @@ var app = express(),
 config.app = app; 
 // intialize express server
 require('./config/express')(app, config); 
-// initialize routs
+// initialize routes
 require('./config/routes')(app);  
 
 // Start server
